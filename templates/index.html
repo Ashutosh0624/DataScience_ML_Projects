@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake ID Detector</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Fake ID Detector</h1>
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <label for="image1">Original Image:</label>
+        <input type="file" name="image1" required><br><br>
+        <label for="image2">Tampered Image:</label>
+        <input type="file" name="image2" required><br><br>
+        <button type="submit">Detect</button>
+    </form>
+
+    {% if score %}
+    <h2>Results</h2>
+    <p>SSIM Similarity Score: {{ score }}</p>
+    <img src="{{ result_image }}" alt="Result Image" width="500">
+    {% endif %}
+</body>
+</html>
